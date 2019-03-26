@@ -1,5 +1,6 @@
 # Free99
 
--FRONTEND
+##FRONTEND
 	- Create components in the frontend/components/ folder, create subfolders for each component
--BACKEND
+
+##BACKEND
