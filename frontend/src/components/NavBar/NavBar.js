@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import LoginButton from '../LoginFeatures/Login';
-import SignupButton from '../SignUpFeatures/Signup';
+import BrowseButton from '../Browse/BrowseButton';
+import ProfileButton from '../MyProfile/ProfileButton';
 
 class NavBar extends Component {
     constructor(props) {
@@ -42,8 +42,8 @@ class NavBar extends Component {
             <AppBar position="fixed" color="primary">
                 <Toolbar>
                     <h3>Free99</h3>&emsp;&emsp;
-                <LoginButton />
-                <SignupButton />
+                    <ProfileButton />
+                    <BrowseButton />
                 </Toolbar>
             </AppBar>
         </div>
