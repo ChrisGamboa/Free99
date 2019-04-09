@@ -16,6 +16,7 @@ class LoginForm extends Component {
         this.sendLoginFormData = this.props.sendLoginFormData.bind(this);
     }
     
+    /* this function passes username and password state variables to parent component */
     sendLoginFormData = () => {
         this.props.getLoginFormData(this.state);
     }
@@ -38,7 +39,7 @@ class LoginForm extends Component {
         let data = this.state;
         data[event.target.name] = event.target.value;
         this.setState(data);
-        this.sendLoginFormData(this.state);
+        this.sendLoginFormData(this.state); /* triggers sending state to parent */
         this.render();
     }
 

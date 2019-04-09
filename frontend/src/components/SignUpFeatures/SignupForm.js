@@ -17,7 +17,10 @@ class SignupForm extends Component {
         this.commonChange = this.commonChange.bind(this);
         this.sendSignUpFormData = this.props.sendSignUpFormData.bind(this);
     }
-
+    /*
+        this function passes email, username, password, confirmPassword
+         state variables to parent component 
+    */
     sendSignUpFormData = () => {
         this.props.getLoginFormData(this.state);
     }
@@ -40,7 +43,7 @@ class SignupForm extends Component {
         let data = this.state;
         data[event.target.name] = event.target.value;
         this.setState(data);
-        this.sendSignUpFormData(this.state);
+        this.sendSignUpFormData(this.state); /* triggers sending state to parent */
         this.render();
     }
 

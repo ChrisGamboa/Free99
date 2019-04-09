@@ -7,6 +7,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import SignupForm from './SignupForm';
 
+/* used to HTTP requests */
 const axios = require('axios');
 
 class SignupButton extends Component {
@@ -29,11 +30,13 @@ class SignupButton extends Component {
     this.setState({ open: false });
   };
 
+    /* this function sets state to SignUpForm's values on change */
   getSignUpFormData = (loginData) => {
     this.setState({username: loginData.username, password: loginData.password});
     console.log(this.state);
   }
 
+    /* this function sends the current state to the backend to be processed */
   sendSignUpRequest = () => {
     let data = this.state;
     axios({

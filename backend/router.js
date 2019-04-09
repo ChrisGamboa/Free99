@@ -9,13 +9,7 @@ router.use(bodyParse.urlencoded({
 
 router.use(bodyParse.json());
 
-// router.use(function(req, res, next) {
-//     res.header("Access-Control-Allow-Origin", "*");
-//     res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
-//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//     next();
-// });
-
+/* creates DB connection for MySQL */
 let connection = mysql.createConnection({
     host: "",
     port: "",
@@ -24,6 +18,7 @@ let connection = mysql.createConnection({
     database: ""
 });
 
+/* endpoint for attempting to login */
 router.get('/loginrequest', (req, res, next) => {
     console.log('LoginSubmit request received!');
     // connection.query(
@@ -38,6 +33,7 @@ router.get('/loginrequest', (req, res, next) => {
     res.send("/LoginRequest is connected!");
 })
 
+/* endpoint for attempting to sign up */
 router.get('/signuprequest', (req, res, next) => {
     console.log('Sign-Up request received!');
     // connection.query(
