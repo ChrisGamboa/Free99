@@ -5,7 +5,7 @@ class BrowseButton extends Component {
     render() {
         return(
             <div>
-                <Button color="inherit" size="large" variant="">
+                <Button color="inherit" size="large">
                     Browse
                 </Button>
             </div>

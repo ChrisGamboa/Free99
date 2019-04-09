@@ -3,6 +3,10 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import BrowseButton from '../Browse/BrowseButton';
 import ProfileButton from '../MyProfile/ProfileButton';
+import SearchIcon from '@material-ui/icons/Search';
+import InputBase from '@material-ui/core/InputBase';
+
+
 
 class NavBar extends Component {
     constructor(props) {
@@ -44,6 +48,8 @@ class NavBar extends Component {
                     <h3>Free99</h3>&emsp;&emsp;
                     <ProfileButton />
                     <BrowseButton />
+                    <SearchIcon style={{position: "relative"}} />
+                    <InputBase placeholder="Search..." style={{borderRadius: "theme.shape.borderRadius"}}/>
                 </Toolbar>
             </AppBar>
         </div>

@@ -15,6 +15,11 @@ class SignupForm extends Component {
             }
         }
         this.commonChange = this.commonChange.bind(this);
+        this.sendSignUpFormData = this.props.sendSignUpFormData.bind(this);
+    }
+
+    sendSignUpFormData = () => {
+        this.props.getLoginFormData(this.state);
     }
     
     /* 
@@ -35,6 +40,7 @@ class SignupForm extends Component {
         let data = this.state;
         data[event.target.name] = event.target.value;
         this.setState(data);
+        this.sendSignUpFormData(this.state);
         this.render();
     }
 
@@ -47,7 +53,7 @@ class SignupForm extends Component {
               label="Email"
               name="email"
               onChange={this.commonChange} /* Sets onChange prop to our custom commonChange function */
-              value={this.state.username}  /* Passes value of username from current state */
+              value={this.state.email}  /* Passes value of username from current state */
             />&emsp;&emsp;
             <TextField
               variant="outlined" 
