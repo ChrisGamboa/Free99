@@ -13,8 +13,14 @@ class LoginForm extends Component {
             }
         }
         this.commonChange = this.commonChange.bind(this);
+        this.sendLoginFormData = this.props.sendLoginFormData.bind(this);
     }
     
+    /* this function passes username and password state variables to parent component */
+    sendLoginFormData = () => {
+        this.props.getLoginFormData(this.state);
+    }
+
     /* 
         DO NOT MODIFY
         I designed this function to universally handle re-rendering
@@ -33,6 +39,7 @@ class LoginForm extends Component {
         let data = this.state;
         data[event.target.name] = event.target.value;
         this.setState(data);
+        this.sendLoginFormData(this.state); /* triggers sending state to parent */
         this.render();
     }
 
@@ -56,6 +63,7 @@ class LoginForm extends Component {
               onChange={this.commonChange} /* Sets onChange prop to our custom commonChange function */
               value={this.state.password}  /* Passes value of password from current state */
             />
+
         </div>
         )}
 }

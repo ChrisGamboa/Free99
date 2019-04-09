@@ -3,7 +3,16 @@ import React, { Component } from 'react';
 import NavBar from './components/NavBar/NavBar'
 import HomePageCard from './components/HomePageCard/HomePageCard';
 
+const axios = require('axios');
+
 class App extends Component {
+    componentDidMount() {
+        axios.get('http://localhost:4000/')
+        .then(res => {
+          console.log(res);
+        })
+    }
+
     render() {
         return (
         <div><NavBar />
