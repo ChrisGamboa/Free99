@@ -37,13 +37,14 @@ class LoginButton extends Component {
   /* this function sends the current state to the backend to be processed */
   sendLoginRequest = () => {
     let data = this.state;
+    console.log(data);
     axios({
-      method: 'get',
+      method: 'post',
       url: 'http://localhost:4000/loginrequest',
       data
     })
     .then(res => {
-      console.log(res);
+      console.log(res.data);
     })
   }
   

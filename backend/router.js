@@ -1,7 +1,8 @@
 let express = require('express');
 let bodyParse = require('body-parser');
 const router = express.Router();
-let mysql = require('mysql');
+
+let MongoClient = require('mongodb').MongoClient
 
 router.use(bodyParse.urlencoded({
     extended: true
@@ -9,17 +10,20 @@ router.use(bodyParse.urlencoded({
 
 router.use(bodyParse.json());
 
-/* creates DB connection for MySQL */
-let connection = mysql.createConnection({
-    host: "",
-    port: "",
-    user: "",
-    password: "",
-    database: ""
-});
+MongoClient.connect("mongodb+srv://chrisUser:chrisUser@mastercluster-nrjln.mongodb.net/test?retryWrites=true",
+function (err, db) {
+  if (err){
+      throw err
+  }
+  else{
+      console.log("Success connecting to MongoDB");
+  }
+})
+
+
 
 /* endpoint for attempting to login */
-router.get('/loginrequest', (req, res, next) => {
+router.post('/loginrequest', (req, res) => {
     console.log('LoginSubmit request received!');
     // connection.query(
     //     /* insert query between literals */
@@ -29,8 +33,10 @@ router.get('/loginrequest', (req, res, next) => {
     //     }
     //     res.send(result);
     // })
-    console.log(req);
-    res.send("/LoginRequest is connected!");
+    console.log(req.body);
+    let username = req.body.username;
+    let password = req.body.password;
+    res.send(`Login with info:\nUsername: ${username}\tPassword: ${password}`);
 })
 
 /* endpoint for attempting to sign up */
