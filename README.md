@@ -1,4 +1,10 @@
 # Free99
+	A web app to publish free events online.
+	Created by:
+		- Christian Gamboa
+		- Glenda Gonzalez
+		- Diego Vera
+		- Melanie Meza
 
 ## FRONTEND
 
