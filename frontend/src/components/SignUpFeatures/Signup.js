@@ -32,20 +32,25 @@ class SignupButton extends Component {
 
     /* this function sets state to SignUpForm's values on change */
   getSignUpFormData = (loginData) => {
-    this.setState({username: loginData.username, password: loginData.password});
-    console.log(this.state);
+    this.setState({
+      email: loginData.email,
+      username: loginData.username,
+      password: loginData.password,
+      passwordConfirmation: loginData.passwordConfirmation
+    });
+    // console.log(this.state);
   }
 
     /* this function sends the current state to the backend to be processed */
   sendSignUpRequest = () => {
     let data = this.state;
     axios({
-      method: 'get',
+      method: 'post',
       url: 'http://localhost:4000/signuprequest',
       data
     })
     .then(res => {
-      console.log(res);
+      console.log(res.data);
     })
   }
 

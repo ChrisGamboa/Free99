@@ -5,6 +5,8 @@ import BrowseButton from '../Browse/BrowseButton';
 import ProfileButton from '../MyProfile/ProfileButton';
 import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
+import Button from '@material-ui/core/Button';
+import { withRouter } from 'react-router-dom';
 
 
 
@@ -18,7 +20,28 @@ class NavBar extends Component {
             }
         }
         this.commonChange = this.commonChange.bind(this);
+        this.goPost = this.goPost.bind(this);
+        this.goBrowse = this.goBrowse.bind(this);
+        this.goSingleEvent = this.goSingleEvent.bind(this);
+        this.goHome = this.goHome.bind(this);
     }
+    /* These functions manipulate browser URL and tells index.js to load pages */
+    goHome() {
+        this.props.history.push('/home');
+    }
+
+    goPost() {
+        this.props.history.push('/post');
+    }
+
+    goBrowse() {
+        this.props.history.push('/browse');
+    }
+
+    goSingleEvent() {
+        this.props.history.push('/singleevent')
+    }
+
     /* 
         DO NOT MODIFY
         I designed this function to universally handle re-rendering
@@ -46,8 +69,12 @@ class NavBar extends Component {
             <AppBar position="fixed" color="primary">
                 <Toolbar>
                     <h3>Free99</h3>&emsp;&emsp;
-                    <ProfileButton />
-                    <BrowseButton />
+                    {/* <ProfileButton /> */}
+                    <Button color="inherit" name="home" value="home" onClick={this.goHome}>Home</Button>&emsp;&emsp;
+                    <Button color="inherit" name="post" value="post" onClick={this.goPost}>Post</Button>&emsp;&emsp;
+                    <Button color="inherit" name="browse" value="browse" onClick={this.goBrowse}>Browse</Button>&emsp;&emsp;
+                    <Button color="inherit" name="singleevent" value="singleevent" onClick={this.goSingleEvent}>Single Event</Button>&emsp;&emsp;
+
                     <SearchIcon style={{position: "relative"}} />
                     <InputBase placeholder="Search..." style={{borderRadius: "theme.shape.borderRadius"}}/>
                 </Toolbar>
@@ -57,4 +84,4 @@ class NavBar extends Component {
     }
 }
 
-export default (NavBar);
+export default withRouter(NavBar);

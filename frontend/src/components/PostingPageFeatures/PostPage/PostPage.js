@@ -7,8 +7,8 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import PostImage from './components/PostImage/PostImage';
-import PostingForm from './components/PostingForm/PostingForm';
+import PostImage from '../PostImage/PostImage';
+import PostingForm from '../PostingForm/PostingForm';
 
 
 
@@ -28,24 +28,26 @@ const styles = {
 function ImgMediaCard(props) {
   const { classes } = props;
   return (
-    <Card className={classes.card}stylealign="center">
-      <CardActionArea>
-          <PostImage/>
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-          <PostingForm/>
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary">
-          Share
-        </Button>
-        <Button size="small" color="primary">
-          Save
-        </Button>
-      </CardActions>
-    </Card>
+    <div> 
+      <Card className={classes.card}stylealign="center">
+        <CardActionArea>
+            <PostImage/>
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="h2">
+            <PostingForm/>
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+        <CardActions>
+          <Button size="small" color="primary">
+            Share
+          </Button>
+          <Button size="small" color="primary">
+            Save
+          </Button>
+        </CardActions>
+      </Card> 
+    </div>
   );
 }
 

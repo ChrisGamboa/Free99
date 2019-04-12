@@ -16,8 +16,8 @@ class App extends Component {
     render() {
         return (
         <div><NavBar />
-            <div style={{position: 'absolute', top: '40%', bottom: '75%', left: '40%'}}>
-                <HomePageCard />
+            <div style={{position: 'absolute', top: '40%', left: '40%'}}>
+                {this.props.children}
             </div>
 
         </div>

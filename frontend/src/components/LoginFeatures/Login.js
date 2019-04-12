@@ -31,7 +31,7 @@ class LoginButton extends Component {
   /* this function sets state to LoginForm's values on change */
   getLoginFormData = (loginData) => {
     this.setState({username: loginData.username, password: loginData.password});
-    console.log(this.state);
+    // console.log(this.state);
   }
 
   /* this function sends the current state to the backend to be processed */

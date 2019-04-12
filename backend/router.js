@@ -40,7 +40,7 @@ router.post('/loginrequest', (req, res) => {
 })
 
 /* endpoint for attempting to sign up */
-router.get('/signuprequest', (req, res, next) => {
+router.post('/signuprequest', (req, res) => {
     console.log('Sign-Up request received!');
     // connection.query(
     //     /* insert query between literals */
@@ -50,6 +50,10 @@ router.get('/signuprequest', (req, res, next) => {
     //     }
     //     res.send(result);
     // })
+    let email = req.body.email;
+    let username = req.body.username;
+    let password = req.body.password;
+    let passwordConfirmation = req.body.passwordConfirmation;
     console.log(req);
     res.send("/SignUpRequest is connected!");
 })
