@@ -12,3 +12,5 @@
 	- Create subfolders for each component
 
 ## BACKEND
+	- server.js is primary file which utilizes router.js and its functions
+	- Uses MongoDB connection for database
