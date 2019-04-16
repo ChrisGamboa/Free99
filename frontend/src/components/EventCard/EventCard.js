@@ -35,7 +35,7 @@ const styles = {
   },
 };
 //shamelessly stolen from material demo: https://material-components.github.io/material-components-web-catalog/#/component/card
-function ImgMediaCard(props) {
+function EventCard(props) {
   const { classes } = props;
   return (
     <div>
@@ -78,8 +78,8 @@ function ImgMediaCard(props) {
   );
 }
 
-ImgMediaCard.propTypes = {
+EventCard.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(ImgMediaCard);
+export default withStyles(styles)(EventCard);
