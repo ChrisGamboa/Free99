@@ -55,6 +55,12 @@ router.post('/signuprequest', (req, res) => {
     let newPasswordConfirmation = req.body.passwordConfirmation;
     console.log(req.body);
 
+    /* Check if passwords match, if not, then do not allow SignUp */
+    if(newPassword != newPasswordConfirmation){
+      res.send("Passwords do not match!");
+      return;
+    }
+
     // Create document for mongodb
     let doc = {
        email: newEmail,
@@ -62,6 +68,40 @@ router.post('/signuprequest', (req, res) => {
        password: newPassword
     };
     console.log(`created document in backend: \n${doc.email}, ${doc.username}, ${doc.password}`);
+
+    /*
+      TODO: check if account exists in the database
+            UNDER CONSTRUCTION
+
+    MongoClient.connect(connectionUrl,
+    function (err, db) {
+      if (err){
+          throw err;
+      }
+      else{
+          console.log("Success connecting to DB withn /SignupRequest");
+      }
+
+      let Free99 = db.db(dbName);
+
+      Free99.collection(accounts).findOne(doc, function(err, res) {
+        if (err) {
+          throw err;
+        }
+        else {
+          console.log("Account may already exist!");
+          return true;
+        }
+        db.close();
+      });
+
+      if(ifExists == doc.email){
+        return true;
+      }
+    });
+
+    */
+
 
     // Send new account information to database
     MongoClient.connect(connectionUrl,
@@ -73,7 +113,7 @@ router.post('/signuprequest', (req, res) => {
           console.log("Success connecting to DB withn /SignupRequest");
       }
 
-      const Free99 = db.db(dbName);
+      let Free99 = db.db(dbName);
       Free99.collection(accounts).insertOne(doc, function(err, res) {
         if (err) {
           throw err;
