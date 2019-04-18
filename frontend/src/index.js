@@ -7,7 +7,7 @@ import ImgMediaCard from './components/PostingPageFeatures/PostPage/PostPage';
 import Browse from './components/Browse/Browse'
 import * as serviceWorker from './serviceWorker';
 import HomePageCard from './components/HomePageCard/HomePageCard';
-import EventCard from './components/EventCard/EventCard' 
+import EventCard from './components/EventCard/EventCard'
 
 
 ReactDOM.render(
@@ -17,8 +17,9 @@ ReactDOM.render(
         <Route path={"/home"} component={HomePageCard} />
         <Route path={"/post"} component={ImgMediaCard} />
         <Route path={"/browse"} component={Browse} />
+        </div>
+        <div style={{position: 'absolute', top: '8.5%', bottom: '75%', left: '0%'}}>
         <Route path={"/singleevent"} component={EventCard} />
-      
         </div>
     </Router></>),
     document.getElementById('root')

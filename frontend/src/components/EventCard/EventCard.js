@@ -20,9 +20,9 @@ const styles = {
 
   //this is the card size given to my by the other cards.
   card: {
-    maxheigth: 500,
-    maxWidth: 300,
-    margintop: 500
+    maxheigth: 1000,
+    maxWidth: 750,
+    margin: 30
   },
   media: {
     // ⚠️ object-fit is not supported by IE 11.
@@ -41,16 +41,22 @@ function EventCard(props) {
     <div>
       <Card className={classes.card} stylealign="center">
         <CardPrimaryContent className='event__primary-action'>
-          <CardMedia 
-            wide 
+          <CardMedia
+            wide
             image='http://facilities.fiu.edu/facilitiesnewweb/SlideShowPics/ConstructionPics/ProjectPageImages/AHC_5_Renderings.jpg'
             className={classes.cardmedia} />
           <div className='event__primary'>
-            <Typography variant='h5' className='event__title'>
-              Lorem Ipsum
+          <Typography variant='h5' className='event__title'>
+            FIU AHC 5
+          </Typography>
+            <Typography variant='subtitle2' className='event__subtitle'>
+              11200 SW 8th Street Miami, FL 33199
             </Typography>
             <Typography variant='subtitle2' className='event__subtitle'>
-              Posted by Dolor Sit Amet
+              Miami, FL 33199
+            </Typography>
+            <Typography variant='subtitle2' className='event__subtitle'>
+
             </Typography>
           </div>
           <Typography variant='body2' className='event__secondary'>
