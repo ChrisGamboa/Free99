@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -10,37 +10,46 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import CardHeader from '@material-ui/core/CardHeader';
 
-
-const styles = {
-  card: {
-    // maxWidth: 345,
-    minWidth: 300,
-    margin: ''
-    },
-  media: {
-    height: 150,
-  },
-};
-
-function MediaCard(props) {
-  const { classes } = props;
-  return (
-    <Card className={classes.card}>
+class BrowseTile extends Component{
+  constructor(props){
+  super(props);
+  if(props){
+      this.state = {
+          key: this.props.index,
+          EventName: this.props.EventName,
+          EventPicture: this.props.EventPicture,
+          EventLocation: this.props.EventLocation,
+          EventHours: this.props.EventHours,
+          EventDescription: this.props.EventDescription,
+        }
+    }
+  }
+  render(){
+  return(
+    <Card style={{display: 'inline-block',minWidth:200, maxWidth:345, margin:10}}>
       <CardActionArea>
         <CardHeader
-          title = "Event Title"
+          title = {(this.state.EventTitle)}
         />
-          <CardMedia
-            className={classes.media}
-            //image="/static/images/cards/contemplative-reptile.jpg"
-            title="Movies"
-            />
+          <CardMedia style= {{height:250}} image={(this.state.EventPicture)}/>
             <CardContent>
               <Typography component="p">
-              "Description"
+                {(this.state.EventDescription)}
+                <br />
               </Typography>
               <Typography component="p">
-              "Location"
+                <br />
+              </Typography>
+              <Typography component="p">
+              Location:<br />
+                {(this.state.EventLocation)}
+              </Typography>
+              <Typography component="p">
+                <br />
+              </Typography>
+              <Typography component="p">
+              Hours:<br />
+                {(this.state.EventHours)}
               </Typography>
               </CardContent>
               </CardActionArea>
@@ -52,9 +61,6 @@ function MediaCard(props) {
     </Card>
   );
 }
+}
 
-MediaCard.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
-
-export default withStyles(styles)(MediaCard);
+export default (BrowseTile);
