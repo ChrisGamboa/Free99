@@ -7,19 +7,20 @@ import ImgMediaCard from './components/PostingPageFeatures/PostPage/PostPage';
 import Browse from './components/Browse/Browse'
 import * as serviceWorker from './serviceWorker';
 import HomePageCard from './components/HomePageCard/HomePageCard';
-import EventCard from './components/EventCard/EventCard'
 
 
 ReactDOM.render(
     (<><Router>
+        <div>
         <div style={{position: 'absolute', top: '40%', bottom: '75%', left: '40%'}}>
         <Route path={""} component={App} />
         <Route path={"/home"} component={HomePageCard} />
         <Route path={"/post"} component={ImgMediaCard} />
+        {/* <Route path={"/singleevent"} component={SingleEvent} /> */}
+        </div>
+        <div style={{position: 'absolute', top: '15%', bottom: '75%', left: '0%'}}> 
         <Route path={"/browse"} component={Browse} />
         </div>
-        <div style={{position: 'absolute', top: '8.5%', bottom: '75%', left: '0%'}}>
-        <Route path={"/singleevent"} component={EventCard} />
         </div>
     </Router></>),
     document.getElementById('root')
